@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "thinkbidge-task"
+    }
+  },
+  "defaultProject": "thinkbidge-task",
+  "cli": {
+    "analytics": "0a29d104-1d32-4cda-acd4-86eff71100e5"
+  }
 }
