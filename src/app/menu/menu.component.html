@@ -8,21 +8,18 @@
       <mat-toolbar color="primary" class="mat-elevation-z0 smallTool">
         <mat-toolbar-row class="secondToolbar">
           <span class="ml-0 pointer" routerLink='/dashboard'>
-            <img src="https://d2cerka36d9z24.cloudfront.net/angular-b2c/assets/bluelogo.png" alt="Medikoe Logo"
-                 style="height: 45px; width: 100%;">
+            <img src="../../assets/tb-logo-black-1.png" alt="think bridge"
+                 style="height: 70px; width: 100%;">
           </span>
         </mat-toolbar-row>
       </mat-toolbar>
     </div>
     <mat-nav-list class="mt-5">
-      <mat-list-item routerLink="dashboard" (click)="checkNavigation('newClass')" [ngClass]="{'newClass': addItemPage}">
+      <mat-list-item routerLink="add_item" (click)="checkNavigation('newClass')" [ngClass]="{'newClass': addItemPage}">
         <a matLine>Add New Item</a>
       </mat-list-item>
-      <mat-list-item routerLink="create-event" (click)="checkNavigation('listClass')" [ngClass]="{'listClass': itemListPage}">
+      <mat-list-item routerLink="" (click)="checkNavigation('listClass')" [ngClass]="{'listClass': itemListPage}">
         <a matLine>Item List</a>
-      </mat-list-item>
-      <mat-list-item (click)="logout()">
-        Logout
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

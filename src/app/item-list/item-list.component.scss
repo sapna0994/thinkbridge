@@ -1,4 +1,3 @@
-
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 10px !important;
 }
@@ -8,20 +7,9 @@
 ::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
   transform: none !important;
 }
-
-.mat-form-field {
-  font-size: 14px;
-  width: 92%;
-}
 .section {
   padding: 30px 50px 30px 30px;
 }
-.submit-btn {
-  margin-top: 15px;
-}
-.mt-4{
-  margin-top: 20px;
-}
-.errorMsg{
-  color: #c83232;
+table {
+  width: 100%;
 }

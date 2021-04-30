@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSidenav} from '@angular/material';
+// import {MatSidenav} from '@angular/material';
 import {Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-@ViewChild('drawer', {static: false}) sidenav: MatSidenav;
+// @ViewChild('drawer', {static: false}) sidenav: MatSidenav;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
 
   links = [
     {name: 'Add Item', link: 'add_item', cls: 'new'},
-    {name: 'Item List', link: 'item_list', cls: 'list'},
+    {name: 'Item List', link: '', cls: 'list'},
   
   ];
 
@@ -38,12 +38,12 @@ export class MenuComponent implements OnInit {
   	private breakpointObserver: BreakpointObserver,
     private route: Router
   ) { 
-	if (this.route.url === '/add_item') {
+	if (this.route.url === 'add_item') {
 	      this.addItemPage = true;
 	      this.itemListPage = false; 
-	    } else if (this.route.url === '/item-list') {
-	      this.itemListPage = false;
-	      this.addItemPage = true;  
+	    } else if (this.route.url === '') {
+	      this.itemListPage = true;
+	      this.addItemPage = false;  
 	    }
 	}
 
@@ -54,13 +54,8 @@ checkNavigation(cls) {
         this.addItemPage = true;
 	    this.itemListPage = false; 
     } else if (cls === 'listClass') {
-        this.itemListPage = false;
-	    this.addItemPage = true; 
+        this.itemListPage = true;
+	    this.addItemPage = false; 
     } 
   }
-logout() {
-    localStorage.clear();
-    location.href = '/login';
-  }
-
 }

@@ -1,0 +1,66 @@
+<div class="section">
+    <div>
+      <h2 style="color:#9e9e9e;">Item List</h2>
+    </div>
+    <div class="mt-4">
+    	<div align="end">
+	    	<mat-form-field appearance="outline" class="fullWidth">
+			  <input matInput (keyup)="applyFilter($event)" placeholder="Search Item from List" autocomplete="false" #input>
+			</mat-form-field>
+		</div>
+
+	  	<div class="mat-elevation-z8 mt-4">
+		  <table mat-table [dataSource]="dataSource">
+
+		    <ng-container matColumnDef="sno">
+		      <th mat-header-cell *matHeaderCellDef> No. </th>
+		      <td mat-cell *matCellDef="let list"> {{list.sno}} </td>
+		    </ng-container>
+
+		    <ng-container matColumnDef="name">
+		      <th mat-header-cell *matHeaderCellDef> Name </th>
+		      <td mat-cell *matCellDef="let list"> {{list.name}} </td>
+		    </ng-container>
+
+		    <ng-container matColumnDef="description">
+		      <th mat-header-cell *matHeaderCellDef> Description </th>
+		      <td mat-cell *matCellDef="let list"> {{list.description}} </td>
+		    </ng-container>
+
+		    <ng-container matColumnDef="category">
+		      <th mat-header-cell *matHeaderCellDef> Category </th>
+		      <td mat-cell *matCellDef="let list"> {{list.category}} </td>
+		    </ng-container>
+
+		     <ng-container matColumnDef="code">
+		      <th mat-header-cell *matHeaderCellDef> Item Code </th>
+		      <td mat-cell *matCellDef="let list"> {{list.code}} </td>
+		    </ng-container> 
+
+		     <ng-container matColumnDef="price">
+		      <th mat-header-cell *matHeaderCellDef> Price </th>
+		      <td mat-cell *matCellDef="let list"> {{list.price}} </td>
+		    </ng-container> 
+
+		    <ng-container matColumnDef="discount">
+		      <th mat-header-cell *matHeaderCellDef> Discount </th>
+		      <td mat-cell *matCellDef="let list"> {{list.discount}} </td>
+		    </ng-container>
+
+		    <ng-container matColumnDef="action">
+		      <th mat-header-cell *matHeaderCellDef> Action </th>
+		      <td mat-cell *matCellDef="let list; let i = index">
+		      	<div class="btn-group btn-group-sm">
+		            <button (click)="editItem(list)" class="btn btn-sm btn-info"><i class="fas fa-edit" aria-hidden="true"></i></button>
+		            <button (click)="deleteItem(list.sno, i, 1)" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>          
+         		 </div>
+		      </td>
+		    </ng-container>
+
+		    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		  </table>
+	  	  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+		</div>
+    </div>
+</div>
